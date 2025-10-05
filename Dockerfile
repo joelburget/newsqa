@@ -1,7 +1,9 @@
 FROM continuumio/miniconda:4.5.11
 
+RUN echo "deb http://archive.debian.org/debian stretch main" > /etc/apt/sources.list
+
 # Install JDK.
-RUN apt-get update && apt-get install --yes default-jdk
+RUN apt-get update && apt-get install --yes --allow-unauthenticated default-jdk
 
 RUN echo ". /opt/conda/etc/profile.d/conda.sh" >> ~/.bashrc
 # Setup the Python environment.
